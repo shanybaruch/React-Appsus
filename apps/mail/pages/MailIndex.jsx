@@ -1,6 +1,8 @@
 import { MailHeader } from "../cmps/MailHeader.jsx"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-
+import { mailService } from "../../../services/mail.service.js"
+import { MailList } from "../cmps/MailList.jsx"
+import { MailFilter } from "../cmps/MailFilter.jsx"
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
@@ -9,16 +11,16 @@ export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [filterBy, setFilterBy] = useState(bookService.getFilterFromParams(searchParams))
+    const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
 
     useEffect(() => {
         console.log('filterby: ', filterBy);
-        setSearchParams(cleanObject(filterBy))
+        setSearchParams(mailService.cleanObject(filterBy))
         loadMails()
     }, [filterBy])
 
     function loadMails() {
-        bookService.query(filterBy)
+        mailService.query(filterBy)
             .then(setMails)
             .catch(err => {
                 console.log('err:', err)
@@ -27,7 +29,7 @@ export function MailIndex() {
     }
 
     function onRemoveMail(mailId) {
-        bookService.remove(mailId)
+        mailService.remove(mailId)
             .then(() => {
                 setMails(mails => mails.filter(mail => mail.id !== mailId))
                 showSuccessMsg('Mail removed successfully')
@@ -50,7 +52,7 @@ export function MailIndex() {
 
                 <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
 
-                <Link className="add-mail" to="/mail/edit">Add mail</Link>
+                <Link className="add-mail" to="/mail/edit">Compose</Link>
                 <MailList
                     mails={mails}
                     onRemoveMail={onRemoveMail}

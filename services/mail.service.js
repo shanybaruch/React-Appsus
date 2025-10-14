@@ -1,4 +1,4 @@
-import { loadFromStorage, makeId, saveToStorage } from './util.service.js'
+import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
@@ -11,7 +11,8 @@ export const mailService = {
     save,
     getEmptyMail,
     getDefaultFilter,
-    getFilterFromSearchParams
+    getFilterFromParams,
+    cleanObject,
 }
 
 function query(filterBy = {}) {
@@ -47,7 +48,7 @@ function save(mail) {
 }
 
 
-function getEmptyMail(subject = '', date = '') {
+function getEmptyMail(subject = '', date = '', description = '') {
     return { subject, date, description }
 }
 
@@ -59,7 +60,7 @@ function getDefaultFilter() {
 
 
 function _createMails() {
-    let mails = loadFromStorage(MAIL_KEY)
+    let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [
             _createMail('Udemy', '2025-05-17'),
@@ -67,20 +68,20 @@ function _createMails() {
             _createMail('Jewelry', '2024-12-2'),
             _createMail('RavKav', '2023-03-1')
         ]
-        saveToStorage(MAIL_KEY, mails)
+        utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
 
 function _createMail(subject, date) {
     const mail = getEmptyMail(subject, date)
-    mail.id = makeId()
+    mail.id = utilService.makeId()
     mail.description = 'lorem ipsum'
     return mail
 }
 
 
 
-function getFilterFromSearchParams(searchParams) {
+function getFilterFromParams(searchParams) {
     const subject = searchParams.get('subject') || ''
     const date = searchParams.get('date') || ''
     return {
@@ -100,4 +101,16 @@ function _setNextPrevMailId(mail) {
         mail.prevMailId = prevMail.id
         return mail
     })
+}
+
+
+function cleanObject(obj) {
+    const cleaned = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value !== '' && value !== null && value !== undefined) {
+            cleaned[key] = value
+        }
+    }
+    return cleaned
 }
