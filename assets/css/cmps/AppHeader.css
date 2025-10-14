@@ -9,6 +9,10 @@
     .logo-img {
         width: auto;
     }
+
+    .logo-title {
+        display: inline;
+    }
 }
 
 nav a {
