@@ -10,6 +10,9 @@ export function AppHeader() {
                 <h3 className="logo-title">MisterEmail</h3>
             </Link>
         </section>
+        <section className="search-line">
+            <input type="text" placeholder="Search mail" />
+        </section>
         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
