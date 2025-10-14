@@ -1,0 +1,16 @@
+.app-header {
+    nav {
+        text-align: center;
+        padding-block: 1em;
+    }
+}
+
+nav a {
+    margin: .5em;
+}
+
+nav a.active {
+    color: var(--color1);
+    font-weight: bold;
+    text-decoration: overline;
+}

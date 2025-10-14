@@ -1,0 +1,45 @@
+.mail-header {
+    /* height: 3em; */
+    padding-block: .8em;
+    background-color: var(--bg1);
+
+    .side-header {
+        grid-auto-flow: column;
+        align-items: center;
+
+        .logo-img {
+            max-width: 10%;
+        }
+
+        .logo-title {
+            display: inline;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            margin-inline-start: .5em;
+            margin-top: .1em;
+            color: var(--gray3);
+        }
+       
+        .menu {
+            padding: 0;
+            margin-inline-start: 1em;
+            margin-inline-end: .8em;
+        }
+    }
+
+    .search-line {
+        input {
+            border: 0;
+            background-color: var(--gray2);
+            border-radius: 2rem;
+            padding: 1em;
+            width: 45vw;
+            color: var(--gray3);
+            /* margin-inline-end: 10em; */
+        }
+    }
+
+    .settings {
+        margin-inline-end: 1em;
+    }
+}
