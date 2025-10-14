@@ -8,7 +8,7 @@
         align-items: center;
 
         .logo-img {
-            max-width: 10%;
+            max-width: 14%;
         }
 
         .logo-title {
@@ -33,9 +33,9 @@
             background-color: var(--gray2);
             border-radius: 2rem;
             padding: 1em;
-            width: 45vw;
+            width: 50vw;
             color: var(--gray3);
-            /* margin-inline-end: 10em; */
+            margin-inline-end: 25em;
         }
     }
 
