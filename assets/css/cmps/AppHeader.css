@@ -1,8 +1,14 @@
 .app-header {
     display: flex;
     justify-content: space-between;
+    
+    height: 2em;
     padding: 1em;
     background: var(--bg1);
+
+    .logo-img {
+        width: auto;
+    }
 }
 
 nav a {
