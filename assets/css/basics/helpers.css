@@ -18,6 +18,14 @@
     justify-content: space-between;
 }
 
+.space-around {
+    justify-content: space-around;
+}
+
 .grid {
     display: grid;
+}
+
+.align-self-center {
+    align-self: center;
 }

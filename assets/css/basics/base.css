@@ -14,6 +14,7 @@ html.dark {
 body {
     margin: 0;
     transition: .5s;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1,
@@ -62,10 +63,10 @@ ul {
     opacity: 1;
 }
 
-button {
+/* button {
     cursor: pointer;
     max-width: 100%;
-}
+} */
 
 .debug * {
     outline: 1px solid gold

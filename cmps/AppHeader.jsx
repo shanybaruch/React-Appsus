@@ -2,11 +2,14 @@ const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader() {
 
-    return <header className="app-header">
-        <Link to="/">
-            <img className="logo-img" src="assets/css/img/logo.png" alt="" />
-            <h3 className="logo-title">MisterEmail</h3>
-        </Link>
+    return <header className="app-header flex space-between">
+        <section className="side-header grid">
+            <a class="menu fa-solid fa-bars"></a>
+            <Link className="flex align-center" to="/">
+                <img className="logo-img" src="assets/css/img/logo.png" alt="logo" />
+                <h3 className="logo-title">MisterEmail</h3>
+            </Link>
+        </section>
         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>

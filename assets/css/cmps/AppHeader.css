@@ -1,18 +1,32 @@
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    
-    height: 2em;
-    padding: 1em;
+    /* height: 3em; */
+    padding-block: 1em;
     background: var(--bg1);
 
-    .logo-img {
-        width: auto;
+    .side-header {
+        grid-auto-flow: column;
+        align-items: center;
+
+        .logo-img {
+            max-width: 10%;
+        }
+
+        .logo-title {
+            display: inline;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            margin-inline-start: .5em;
+            margin-top: .2em;
+            color: var(--gray3);
+        }
+       
+        .menu {
+            padding: 0;
+            margin-inline-start: 1em;
+            margin-inline-end: .8em;
+        }
     }
 
-    .logo-title {
-        display: inline;
-    }
 }
 
 nav a {
