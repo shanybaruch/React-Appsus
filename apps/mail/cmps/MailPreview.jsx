@@ -1,11 +1,12 @@
 export function MailPreview({ mail }) {
 
-    const { subject, date } = mail
+    const { subject, txt, date } = mail
 
     return (
         <article className="mail-preview">
-            <h2>Subject: {subject}</h2>
-            <h4>Date: {date}</h4>
+            <div className="mail-subject">{subject}</div>
+            <div className="mail-txt">{txt}</div>
+            <div className="mail-date">{date}</div>
         </article>
     )
 }

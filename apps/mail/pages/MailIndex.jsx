@@ -52,7 +52,7 @@ export function MailIndex() {
 
                 <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
 
-                <Link className="add-mail" to="/mail/edit"> <span class="fa-solid fa-pen"></span>Compose</Link>
+                <Link className="add-mail" to="/mail/edit"> <span className="fa-solid fa-pen"></span>Compose</Link>
                 <MailList
                     mails={mails}
                     onRemoveMail={onRemoveMail}

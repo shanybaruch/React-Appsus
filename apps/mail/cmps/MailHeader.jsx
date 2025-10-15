@@ -6,7 +6,7 @@ export function MailHeader() {
         <section className="mail-header flex space-between">
 
             <section className="side-header grid">
-                <a class="menu fa-solid fa-bars"></a>
+                <a className="menu fa-solid fa-bars"></a>
                 <Link className="flex align-center" to="/">
                     <img className="logo-img" src="assets/css/img/logo.png" alt="logo" />
                     <h3 className="logo-title">MisterEmail</h3>
@@ -18,7 +18,7 @@ export function MailHeader() {
             </section>
 
             <section className="flex align-center">
-                <a class="settings fa-solid fa-gear"></a>
+                <a className="settings fa-solid fa-gear"></a>
             </section>
 
         </section>

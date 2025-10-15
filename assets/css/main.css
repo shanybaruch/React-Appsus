@@ -20,3 +20,4 @@
 @import './apps/mail/MailIndex.css';
 @import './apps/mail/MailList.css';
 @import url('./cmps/mail/MailIndex.css');
+@import url('./cmps/mail/MailPreview.css');

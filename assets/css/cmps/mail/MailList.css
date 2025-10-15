@@ -2,3 +2,7 @@
     background-color: var(--bg1);
 
 }
+
+.mail-list > li:first-child .mail-preview {
+  border-top: 1px solid var(--gray2);
+}
