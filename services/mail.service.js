@@ -18,14 +18,14 @@ export const mailService = {
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            if (filterBy.subject) {
-                const regExp = new RegExp(filterBy.subject, 'i')
-                mails = mails.filter(mail => regExp.test(mail.subject))
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regExp.test(mail.txt))
             }
-            if (filterBy.date) {
-                mails = mails.filter(mail => mail.date >= filterBy.date)
+            if (filterBy.read) {
+                mails = mails.filter(mail => mail.read === filterBy.read)
             }
-            // console.log(' mails:', mails)
+            console.log(' mails:', mails)
             return mails
         })
 }
@@ -48,13 +48,13 @@ function save(mail) {
 }
 
 
-function getEmptyMail(subject = '', date = '', description = '') {
-    return { subject, date, description }
+function getEmptyMail(subject = '', txt = '', read = false,) {
+    return { subject, txt, read }
 }
 
 
 function getDefaultFilter() {
-    return { subject: '', date: '' }
+    return { txt: '', read: false }
 }
 
 
@@ -63,31 +63,36 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [
-            _createMail('Udemy', '2025-05-17'),
-            _createMail('Sapporo', '2025-01-5'),
-            _createMail('Jewelry', '2024-12-2'),
-            _createMail('RavKav', '2023-03-1')
+            _createMail('Udemy'),
+            _createMail('Sapporo'),
+            _createMail('Jewelry'),
+            _createMail('RavKav'),
+            _createMail('Google'),
+            _createMail('Sdarot'),
+            _createMail('Movies'),
+            _createMail('Titanic'),
         ]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
 
-function _createMail(subject, date) {
-    const mail = getEmptyMail(subject, date)
+function _createMail(subject, txt, read) {
+    const mail = getEmptyMail(subject, txt, read)
     mail.id = utilService.makeId()
-    mail.description = 'lorem ipsum'
+    mail.txt = 'lorem ipsum'
+    mail.read = Math.random() > 0.5
+
     return mail
 }
 
 
 
 function getFilterFromParams(searchParams) {
-    const subject = searchParams.get('subject') || ''
-    const date = searchParams.get('date') || ''
-    return {
-        subject,
-        date
-    }
+    const txt = searchParams.get('txt') || ''
+    const readParam = searchParams.get('read')
+    const read = readParam === null ? '' : readParam === 'true'
+
+    return { txt, read }
 }
 
 

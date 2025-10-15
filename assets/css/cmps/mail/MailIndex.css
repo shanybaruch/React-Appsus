@@ -1,0 +1,14 @@
+.mail-index {
+    .add-mail {
+        padding: 1.3em;
+        border-radius: 2em;
+        box-shadow: 1px 1px 4px 1px var(--gray2);
+        width: max-content;
+        margin: 1em;
+        font-size: .8rem;
+
+        span {
+            padding-inline-end: .6em;
+        }
+    }
+}

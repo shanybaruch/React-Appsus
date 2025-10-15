@@ -26,13 +26,25 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
     //     setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     // }
 
-    const { subject, date } = filterByToEdit
+     function onSubmitFilter(ev) {
+        ev.preventDefault()
+        onSetFilterBy(filterByToEdit)
+    }
+
+    // const { subject, date } = filterByToEdit
 
     return (
         <section className="mail-filter">
-            <button>All</button>
+            <form onSubmit={onSubmitFilter}>
+                        {/* <button onChange={handleChange} value={subject} name="subject" id="subject" type="button">
+                            All
+                        </button> */}
+
+
+            </form>
+            {/* <button>All</button>
             <button>Subject</button>
-            <button >date</button>
+            <button >date</button> */}
         </section>
     )
 }

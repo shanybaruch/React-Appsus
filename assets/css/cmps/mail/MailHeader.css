@@ -8,7 +8,7 @@
         align-items: center;
 
         .logo-img {
-            max-width: 14%;
+            max-width: 12%;
         }
 
         .logo-title {
@@ -22,7 +22,7 @@
        
         .menu {
             padding: 0;
-            margin-inline-start: 1em;
+            margin-inline-start: .5em;
             margin-inline-end: .8em;
         }
     }
@@ -35,11 +35,10 @@
             padding: 1em;
             width: 50vw;
             color: var(--gray3);
-            margin-inline-end: 15em;
         }
     }
 
     .settings {
-        margin-inline-end: 1em;
+        margin-inline-end: .5em;
     }
 }
