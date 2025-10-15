@@ -4,7 +4,10 @@ export function MailPreview({ mail }) {
 
     return (
         <article className="mail-preview">
-            <div className="mail-subject">{subject}</div>
+            <section className="checkbox-sub flex">
+                <input type="checkbox" onClick={() => onRemoveMail(mail.id)} />
+                <div className="mail-subject">{subject}</div>
+            </section>
             <div className="mail-txt">{txt}</div>
             <div className="mail-date">{date}</div>
         </article>
