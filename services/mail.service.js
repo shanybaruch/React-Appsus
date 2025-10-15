@@ -81,8 +81,21 @@ function _createMail(subject, txt, read) {
     mail.id = utilService.makeId()
     mail.txt = 'lorem ipsum'
     mail.read = Math.random() > 0.5
+    mail.date = _getRandomDate()
 
     return mail
+}
+
+
+
+function _getRandomDate() {
+    const start = new Date('2023-01-01').getTime(); 
+    const end = new Date().getTime();
+    
+    const randomTimestamp = start + Math.random() * (end - start);
+    const randomDate = new Date(randomTimestamp);
+    
+    return randomDate.toISOString().slice(0, 10); 
 }
 
 
