@@ -3,6 +3,7 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { mailService } from "../../../services/mail.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
+import { MailSideNav } from "../cmps/MailSideNav.jsx"
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
@@ -50,13 +51,19 @@ export function MailIndex() {
             <section className="header grid">
                 <MailHeader />
 
+                <section className="main-page grid">
+                    <section className="main-side flex">
+                        <Link className="add-mail" to="/mail/edit"> <span className="fa-solid fa-pen"></span>Compose</Link>
+                        <MailSideNav />
+                    </section>
+                    <MailList
+                        mails={mails}
+                        onRemoveMail={onRemoveMail}
+                    />
+                </section>
+
                 <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
 
-                <Link className="add-mail" to="/mail/edit"> <span className="fa-solid fa-pen"></span>Compose</Link>
-                <MailList
-                    mails={mails}
-                    onRemoveMail={onRemoveMail}
-                />
 
             </section>
         </section>

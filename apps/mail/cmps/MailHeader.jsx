@@ -5,7 +5,7 @@ export function MailHeader() {
     return (
         <section className="mail-header flex space-between">
 
-            <section className="side-header grid">
+            <section className="side-header flex">
                 <a className="menu fa-solid fa-bars"></a>
                 <Link className="flex align-center" to="/">
                     <img className="logo-img" src="assets/css/img/logo.png" alt="logo" />
@@ -14,7 +14,10 @@ export function MailHeader() {
             </section>
 
             <section className="search-line">
-                <input type="text" placeholder="Search mail" />
+                <section className="input-container">
+                    <input type="text" placeholder="Search mail" className="search-input" />
+                    <a class="fa-solid fa-sliders" className="sort"></a>
+                </section>
             </section>
 
             <section className="flex align-center">
