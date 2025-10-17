@@ -89,7 +89,7 @@ export function MailAdd() {
             <section className="add-mail-header flex space-between ">
                 <h1 className="title">New Message</h1>
                 <section className="btns">
-                    <button className="btn" type="button">_</button>
+                    <button className="btn bold" type="button">_</button>
                     <button className="btn" type="button">
                         <a className="fa-solid fa-up-right-and-down-left-from-center">
                         </a>
