@@ -16,7 +16,7 @@ export function MailHeader() {
             <section className="search-line">
                 <section className="input-container">
                     <input type="text" placeholder="Search mail" className="search-input" />
-                    <a class="fa-solid fa-sliders" className="sort"></a>
+                    {/* <a class="fa-solid fa-sliders" className="sort"></a> */}
                 </section>
             </section>
 

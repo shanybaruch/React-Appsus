@@ -6,7 +6,7 @@ import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailSideNav } from "../cmps/MailSideNav.jsx"
 
 const { useState, useEffect } = React
-const { Link, useSearchParams } = ReactRouterDOM
+const { Link, Outlet, useSearchParams } = ReactRouterDOM
 
 export function MailIndex() {
 
@@ -53,16 +53,17 @@ export function MailIndex() {
 
                 <section className="main-page grid">
                     <section className="main-side flex">
-                        <Link className="add-mail" to="/mail/edit"> <span className="fa-solid fa-pen"></span>Compose</Link>
+                        <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
                         <MailSideNav />
                     </section>
                     <MailList
                         mails={mails}
                         onRemoveMail={onRemoveMail}
                     />
+                    <Outlet />
                 </section>
 
-                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
+                {/* <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} /> */}
 
 
             </section>
