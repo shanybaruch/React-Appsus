@@ -86,28 +86,33 @@ export function MailAdd() {
     return (
         <section className="mail-add">
 
-            <section className="add-mail-header">
+            <section className="add-mail-header flex space-between ">
                 <h1 className="title">New Message</h1>
-                <button>_</button>
-                <button><i className="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-                <button>x</button>
+                <section className="btns">
+                    <button className="btn" type="button">_</button>
+                    <button className="btn" type="button">
+                        <a className="fa-solid fa-up-right-and-down-left-from-center">
+                        </a>
+                    </button>
+                    <button className="btn" type="button">
+                        <a className="fa-solid fa-xmark">
+                        </a>
+                    </button>
+                </section>
             </section>
 
-            <form className={`${loadingClass} form`} onSubmit={onSaveMail}>
+            <form className={`${loadingClass} form grid`} onSubmit={onSaveMail}>
 
-                <section>
-                    <label htmlFor="to">To</label>
-                    <input value={to} type="text" onChange={handleChange} name="to" id="to" />
+                <section className="section-input-to flex align-center">
+                    <label className="label-to" htmlFor="to">To</label>
+                    <input className="input-to" autoFocus value={to} type="text" onChange={handleChange} name="to" id="to" />
                 </section>
 
-                <input placeholder="Subject" onChange={handleChange} value={subject}
+                <input className="input-subject" placeholder="Subject" onChange={handleChange} value={subject}
                     id='subject' type="text" name='subject' />
 
-                <input onChange={handleChange} value={txt}
-                    id='txt' type="text" name='txt' />
-
                 <section className="flex">
-                    <input type="text" onChange={handleChange} value={txt} name="txt" id="txt" />
+                    <textarea rows="16" type="text"  onChange={handleChange} value={txt} name="txt" id="txt"></textarea>
                 </section>
 
                 <button className="btn-send">Send</button>
