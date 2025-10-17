@@ -1,7 +1,9 @@
 import { NoteHeader } from "../cmps/NoteHeader.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
+import { NotePreviewIcon } from "../cmps/NotePreviewIcon.jsx"
 import { noteService } from "../services/note.service.js"
 import { animateCSS } from "../services/util.service.js"
+
 // import { NoteDetails } from "./NoteDetails.jsx"
 
 const { useState, useEffect, Fragment } = React
@@ -23,7 +25,7 @@ export function NoteIndex() {
     }
 
     function onRemoveNote(noteId, { target }) {
-        const elLi = target.closest('li')
+        const elLi = target.closest('div')
 
         noteService.remove(noteId)
             .then(() => animateCSS(elLi, 'fadeOut'))

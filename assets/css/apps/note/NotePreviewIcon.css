@@ -1,0 +1,45 @@
+.note-preview {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-note-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        bottom 0.4s ease;
+}
+
+.note-preview:hover .nav-note-icons {
+    bottom: 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-note-icons i {
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}

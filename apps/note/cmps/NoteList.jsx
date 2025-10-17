@@ -1,5 +1,5 @@
 import { NotePreview } from "./NotePreview.jsx"
-// import { NoteIndex } from "../pages/NoteIndex.jsx"
+import { NoteIndex } from "../pages/NoteIndex.jsx"
 
 
 export function NoteList({ notes, onRemoveNote, onSelectNoteId }) {
@@ -11,9 +11,9 @@ export function NoteList({ notes, onRemoveNote, onSelectNoteId }) {
                 <li key={note.id} className="note-item">
                     <NotePreview 
                         note={note} 
-                        onClick={() => onSelectNoteId(note.id)} 
+                        onClick={() => onSelectNoteId(note.id)}
+                        onRemoveNote={onRemoveNote} 
                     />
-                    <button onClick={(ev) => onRemoveNote(note.id, ev)}>x</button>
                 </li>
             ))}
         </ul>
