@@ -1,7 +1,8 @@
 .mail-preview {
-    display: flex;
+    /* display: flex; */
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    grid-template-columns: 2fr 3fr 1fr;
 
     background-color: white;
     border-radius: 1em;
@@ -15,6 +16,10 @@
         gap: .5em;
     }
 
+}
+
+.description {
+    
 }
 
 .mail-preview:hover {

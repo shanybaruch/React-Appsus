@@ -63,10 +63,11 @@ ul {
     opacity: 1;
 }
 
-/* button {
+button {
     cursor: pointer;
     max-width: 100%;
-} */
+    border: 0;
+}
 
 .debug * {
     outline: 1px solid gold

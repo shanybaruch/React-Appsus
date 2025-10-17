@@ -22,6 +22,9 @@ function query(filterBy = {}) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regExp.test(mail.txt))
             }
+            if (filterBy.to) {
+                mails = mails.filter(mail => mail.to === filterBy.to)
+            }
             if (filterBy.read) {
                 mails = mails.filter(mail => mail.read === filterBy.read)
             }
@@ -48,13 +51,13 @@ function save(mail) {
 }
 
 
-function getEmptyMail(subject = '', txt = '', read = false,) {
-    return { subject, txt, read }
+function getEmptyMail( to = '', subject = '', txt = '', read = false,) {
+    return { to, subject, txt, read }
 }
 
 
 function getDefaultFilter() {
-    return { txt: '', read: false }
+    return { to: '', txt: '', read: false }
 }
 
 
@@ -63,23 +66,24 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [
-            _createMail('Udemy'),
-            _createMail('Sapporo'),
-            _createMail('Jewelry'),
-            _createMail('RavKav'),
-            _createMail('Google'),
-            _createMail('Sdarot'),
-            _createMail('Movies'),
-            _createMail('Titanic'),
+            _createMail('Udemy','udemy', 'hi! its udemy'),
+            _createMail('Sapporo', 'Best Jewelry', 'sale sale sale!!!'),
+            _createMail('Jewelry', 'My jewelrys...', 'welcome our family'),
+            _createMail('RavKav', 'ravkav Tel-Aviv', 'no much money in your card'),
+            _createMail('Google', 'Mail', 'We cannot to send message'),
+            _createMail('Sdarot', 'Welcome back!', 'You can see all our movies in free!'),
+            _createMail('Movies', 'Hello', 'Dont forget, new moveis uploaded'),
+            _createMail('Titanic', 'one thing', 'this was cerfully'),
         ]
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
 
-function _createMail(subject, txt, read) {
-    const mail = getEmptyMail(subject, txt, read)
+function _createMail(to, subject, txt, read) {
+    const mail = getEmptyMail(to, subject, txt, read)
     mail.id = utilService.makeId()
-    mail.txt = 'lorem ipsum'
+    mail.subject = subject || 'No subject'
+    mail.txt = txt || 'Description lorem ipsum'
     mail.read = Math.random() > 0.5
     mail.date = _getRandomDate()
 

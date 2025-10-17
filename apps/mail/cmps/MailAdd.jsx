@@ -1,4 +1,6 @@
 import { mailService } from "../services/mail.service.js";
+import { showSuccessMsg } from '../services/event-bus.service.js'
+import { showErrorMsg } from '../services/event-bus.service.js'
 
 const { useNavigate, useParams } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -43,12 +45,7 @@ export function MailAdd() {
 
         switch (target.type) {
             case 'number':
-
-                if (field === 'pageCount') {
-                    value = value === '' ? '' : +value
-                    setMailToAdd(prev => ({ ...prev, pageCount: value }))
-                    return
-                }
+                value = +value
                 break
 
             case 'range':
@@ -62,9 +59,19 @@ export function MailAdd() {
         setMailToAdd(prevMail => ({ ...prevMail, [field]: value }))
     }
 
+    function getDate() {
+        const dateNow = new Date().toISOString().split('T')[0]
+        return dateNow
+    }
+
     function onSaveMail(ev) {
         ev.preventDefault()
-        mailService.save(mailToAdd)
+
+        const mailToSave = {
+            ...mailToAdd,
+            date: mailToAdd.date || getDate()
+        }
+        mailService.save(mailToSave)
             .then(() => {
                 navigate('/mail')
                 showSuccessMsg('Mail added!')
@@ -90,11 +97,11 @@ export function MailAdd() {
                 <h1 className="title">New Message</h1>
                 <section className="btns">
                     <button className="btn bold" type="button">_</button>
-                    <button className="btn" type="button">
+                    <button className="btn btn-open-full" type="button">
                         <a className="fa-solid fa-up-right-and-down-left-from-center">
                         </a>
                     </button>
-                    <button className="btn" type="button">
+                    <button className="btn btn-close" onClick={() => navigate('/mail')} type="button">
                         <a className="fa-solid fa-xmark">
                         </a>
                     </button>
@@ -112,7 +119,7 @@ export function MailAdd() {
                     id='subject' type="text" name='subject' />
 
                 <section className="flex">
-                    <textarea rows="16" type="text"  onChange={handleChange} value={txt} name="txt" id="txt"></textarea>
+                    <textarea rows="16" type="text" onChange={handleChange} value={txt} name="txt" id="txt"></textarea>
                 </section>
 
                 <button className="btn-send">Send</button>

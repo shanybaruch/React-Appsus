@@ -5,8 +5,7 @@
 
     border-radius: .5em;
     border: 1px solid var(--gray2);
-    box-shadow: 1px 1px 10px 1px var(--gray2);
-    margin: .6em;
+    box-shadow: 1px 1px 15px 4px var(--gray2);
     width: 60vw;
 
     .form {
@@ -21,9 +20,15 @@
         border-radius: .5em;
         padding: .6em;
 
-        .btn {
-            border: 0;
-            background-color: inherit;
+        .btns {
+            .btn-open-full a {
+                font-size: .7rem;
+            }
+
+            .btn {
+                border: 0;
+                background-color: inherit;
+            }
         }
     }
 
@@ -64,14 +69,19 @@
         padding-block: .5em;
     }
 
+    textarea {
+        padding-block: .5em;
+    }
+
     .btn-send {
         border: 0;
         width: max-content;
-        padding: .7em;
+        padding-block: .8em;
         margin-bottom: .4em;
         border-radius: 5em;
         background-color: var(--bg2);
         color: var(--gray1);
+        padding-inline: 1.5em;
     }
 
 }

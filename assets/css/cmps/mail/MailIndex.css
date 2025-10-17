@@ -14,7 +14,7 @@
     }
 
     .main-page {
-        grid-template-columns: 1fr 5fr;
+        grid-template-columns: 1fr 8fr;
         margin-block-start: 1em;
 
         .main-side {

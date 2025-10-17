@@ -4,6 +4,7 @@
     right: .5em;
     padding: .5em;
     background-color: #111;
+    border-radius: .5em;
 }
 
 .user-msg.open {
@@ -12,14 +13,15 @@
 }
 
 .user-msg.success {
-    background-color: var(--color2);
+    background-color: var(--gray2);
 }
 
 .user-msg.error {
     background-color: var(--color3);
 }
 
-.user-msg button{
-   float: right;
-   margin-inline-start: 4px;
+.user-msg button {
+    border: 0;
+    float: right;
+    margin-inline-start: 4px;
 }

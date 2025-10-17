@@ -50,7 +50,6 @@ export function MailIndex() {
         <section className="mail-index container">
             <section className="header grid">
                 <MailHeader />
-
                 <section className="main-page grid">
                     <section className="main-side flex">
                         <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
@@ -62,10 +61,7 @@ export function MailIndex() {
                     />
                     <Outlet />
                 </section>
-
                 {/* <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} /> */}
-
-
             </section>
         </section>
     )

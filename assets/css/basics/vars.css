@@ -5,9 +5,9 @@
     
     --color1: ;
     --color2: ;
-    --color3: ;
+    --color3: red;
 
     --gray1: rgb(240, 240, 240);
-    --gray2: rgb(219, 219, 220);
+    --gray2: rgb(214, 214, 214);
     --gray3: rgb(68, 71, 70);
 }
