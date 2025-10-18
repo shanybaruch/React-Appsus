@@ -1,5 +1,6 @@
 .mail-index {
     background-color: var(--bg1);
+
     /* background-color: black; */
     .add-mail {
         padding: 1.3em;
@@ -16,8 +17,10 @@
     .main-page {
         grid-template-columns: 1fr 8fr;
         margin-block-start: 1em;
-
+        
+        
         .main-side {
+            z-index: 1;
             flex-direction: column;
         }
     }

@@ -22,8 +22,8 @@ function query(filterBy = {}) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regExp.test(mail.txt))
             }
-            if (filterBy.to) {
-                mails = mails.filter(mail => mail.to === filterBy.to)
+            if (filterBy.from) {
+                mails = mails.filter(mail => mail.from === filterBy.from)
             }
             if (filterBy.read) {
                 mails = mails.filter(mail => mail.read === filterBy.read)
@@ -51,13 +51,13 @@ function save(mail) {
 }
 
 
-function getEmptyMail( to = '', subject = '', txt = '', read = false,) {
-    return { to, subject, txt, read }
+function getEmptyMail( from = '',to = '', subject = '', txt = '', read = false,) {
+    return { from, to, subject, txt, read }
 }
 
 
 function getDefaultFilter() {
-    return { to: '', txt: '', read: false }
+    return { from: '', to: '', txt: '', read: false }
 }
 
 
@@ -79,13 +79,15 @@ function _createMails() {
     }
 }
 
-function _createMail(to, subject, txt, read) {
-    const mail = getEmptyMail(to, subject, txt, read)
+function _createMail(from, subject, txt, read, to) {
+    const mail = getEmptyMail(from, subject, txt, read, to)
     mail.id = utilService.makeId()
     mail.subject = subject || 'No subject'
     mail.txt = txt || 'Description lorem ipsum'
     mail.read = Math.random() > 0.5
     mail.date = _getRandomDate()
+    mail.to = 'You'
+    mail.from = from || 'Unknnown'
 
     return mail
 }

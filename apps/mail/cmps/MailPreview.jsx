@@ -1,5 +1,5 @@
 export function MailPreview({ mail, isSelected, onToggle }) {
-    const { subject, to, txt, date } = mail 
+    const { subject, to, txt, date, from } = mail 
     // console.log(date);
 
     return (
@@ -9,7 +9,7 @@ export function MailPreview({ mail, isSelected, onToggle }) {
                     type="checkbox"
                     checked={isSelected}
                     onChange={onToggle} />
-                <div className="from-to">{to}</div>
+                <div className="from">{from}</div>
             </section>
             <section className="description flex">
                 <div className="mail-subject">{subject}</div>

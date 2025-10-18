@@ -1,4 +1,5 @@
 .mail-list {
+    position: relative;
 }
 
 .mail-list>li:first-child .mail-preview {
