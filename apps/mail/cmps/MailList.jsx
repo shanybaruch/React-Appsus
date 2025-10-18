@@ -6,6 +6,8 @@ const { Link, Outlet, useNavigate } = ReactRouterDOM
 export function MailList({ mails, onRemoveMail }) {
 
     const [selectedMails, setSelectedMails] = useState([]);
+    const navigate = useNavigate() 
+
 
     function toggleSelection(mailId) {
         setSelectedMails(prev =>
@@ -20,6 +22,10 @@ export function MailList({ mails, onRemoveMail }) {
         setSelectedMails([])
     }
 
+    function handleMailClick(mailId, ev) {
+        if (ev.target.closest('.mail-checkbox')) return
+        navigate(`/mail/${mailId}`)
+    }
 
 
     console.log('mails: ', mails)
@@ -37,14 +43,18 @@ export function MailList({ mails, onRemoveMail }) {
             )}
 
             {mails.map(mail => (
-                <div key={mail.id} style={{ position: 'relative' }}>
-                    <Link to={`/mail/${mail.id}`}>
-                        <MailPreview
-                            mail={mail}
-                            isSelected={selectedMails.includes(mail.id)}
-                            onToggle={() => toggleSelection(mail.id)}
-                        />
-                    </Link>
+                <div
+                    key={mail.id}
+                    style={{ position: 'relative' }}
+                    onClick={(ev) => handleMailClick(mail.id, ev)}
+                >
+                    {/* <Link to={`/mail/${mail.id}`}> */}
+                    <MailPreview
+                        mail={mail}
+                        isSelected={selectedMails.includes(mail.id)}
+                        onToggle={() => toggleSelection(mail.id)}
+                    />
+                    {/* </Link> */}
                 </div>
             ))}
         </section>

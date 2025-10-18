@@ -1,15 +1,16 @@
 export function MailPreview({ mail, isSelected, onToggle }) {
-    const { subject, to, txt, date, from } = mail 
+    const { subject, to, txt, date, from, read } = mail 
     // console.log(date);
 
     return (
-        <article className="mail-preview grid">
+        <article className={`mail-preview grid ${read ? 'read' : ''}`}>
             <section className="checkbox-sub flex">
                 <input
+                className="mail-checkbox"
                     type="checkbox"
                     checked={isSelected}
                     onChange={onToggle} />
-                <div className="from">{from}</div>
+                <div className="from">{from || 'You'}</div>
             </section>
             <section className="description flex">
                 <div className="mail-subject">{subject}</div>

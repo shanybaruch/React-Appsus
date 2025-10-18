@@ -29,6 +29,7 @@ export function MailAdd() {
                     subject: mail.subject || '',
                     txt: mail.txt || '',
                     date: mail.date || '',
+                    from: 'You',
                 }
                 setMailToAdd({ ...mail, ...formMail })
             })

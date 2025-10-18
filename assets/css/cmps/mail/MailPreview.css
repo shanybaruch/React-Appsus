@@ -22,8 +22,11 @@
     
 }
 
+.read {
+    background-color: var(--gray2);
+}
+
 .mail-preview:hover {
-    background-color: #f5f7f7;
 }
 
 .mail-subject {

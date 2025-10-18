@@ -14,9 +14,9 @@
     padding-inline-start: 1em;
     border-radius: 1em;
     background-color: white;
-    width: 84%;
+    width: 89%;
     margin-left: 7.7em;
-    height: 50vh;
+    height: 75vh;
 
     .header {
         gap: 1em;
@@ -51,7 +51,7 @@
     align-items: center;
     justify-content: center;
     width: 97%;
-    height: 50vh;
+    height: 75vh;
 
     background-color: white;
 
