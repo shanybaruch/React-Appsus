@@ -4,6 +4,7 @@ import { mailService } from "../../../services/mail.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailSideNav } from "../cmps/MailSideNav.jsx"
+import { MailAdd } from "../cmps/MailAdd.jsx"
 
 const { useState, useEffect } = React
 const { Link, Outlet, useSearchParams } = ReactRouterDOM
@@ -12,8 +13,9 @@ export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [filterBy, setFilterBy] = useState({  txt: '', unread: false, read: false  })
+    const [filterBy, setFilterBy] = useState({ txt: '', unread: false, read: false })
     const [isFilterOpen, setIsFilterOpen] = useState(false)
+    const [isAddOpen, setIsAddOpen] = useState(false)
 
     useEffect(() => {
         console.log('filterby: ', filterBy);
@@ -31,9 +33,18 @@ export function MailIndex() {
             })
     }
 
+    //  function handleChildChange(value) {
+    //     { value ? !value : value }
+    //     setIsAddOpen(value)
+    // }
 
     function handleToggleFilter(isOpen) {
         setIsFilterOpen(isOpen)
+    }
+
+    function handleToggleAdd(shouldReload = false) {
+        setIsAddOpen(prevIsAddOpen => !prevIsAddOpen)
+        if (shouldReload) loadMails()
     }
 
 
@@ -62,7 +73,10 @@ export function MailIndex() {
                 <MailHeader onToggleFilter={handleToggleFilter} />
                 <section className="main-page grid">
                     <section className="main-side flex">
-                        <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
+                        <button className="section-compose " onClick={handleToggleAdd}>
+                            <span className="fa-solid fa-pen"></span>
+                            Compose
+                        </button>
                         <MailSideNav mails={mails} />
                     </section>
                     <MailList
@@ -71,6 +85,7 @@ export function MailIndex() {
                     />
                     <Outlet />
                 </section>
+                {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
                 {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />}
             </section>
 

@@ -62,7 +62,6 @@ export function MailFilter({ defaultFilter, onSetFilterBy }) {
             </form>
 
             <button type="button" onClick={onClearFilter}>Clear</button>
-            {/* <button>Search</button> */}
         </section>
     )
 }

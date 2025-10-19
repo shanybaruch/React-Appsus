@@ -1,7 +1,7 @@
 .mail-index {
     background-color: var(--bg1);
+    height: 100vh;
 
-    /* background-color: black; */
     .add-mail {
         padding: 1.3em;
         border-radius: 2em;
@@ -18,11 +18,13 @@
     .main-page {
         grid-template-columns: 1fr 8fr;
         margin-block-start: 1em;
-        
-        
+        height: 100%;
+
+
         .main-side {
             z-index: 1;
             flex-direction: column;
+            height: 100%;
         }
     }
 }

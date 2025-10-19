@@ -5,7 +5,7 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 const { useNavigate, useParams } = ReactRouterDOM
 const { useState, useEffect } = React
 
-export function MailAdd() {
+export function MailAdd({ onToggleAdd }) {
     const [mailToAdd, setMailToAdd] = useState(mailService.getEmptyMail())
     const [isLoading, setIsLoading] = useState(false)
 
@@ -74,7 +74,7 @@ export function MailAdd() {
         }
         mailService.save(mailToSave)
             .then(() => {
-                navigate('/mail')
+                onToggleAdd(true)
                 showSuccessMsg('Mail added!')
             })
             .catch(err => {
@@ -102,7 +102,7 @@ export function MailAdd() {
                         <a className="fa-solid fa-up-right-and-down-left-from-center">
                         </a>
                     </button>
-                    <button className="btn btn-close" onClick={() => navigate('/mail')} type="button">
+                    <button className="btn btn-close" onClick={onToggleAdd} type="button">
                         <a className="fa-solid fa-xmark">
                         </a>
                     </button>
