@@ -1,0 +1,61 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.mail-details {
+    position: absolute;
+
+    grid-template-rows: 1fr 3fr;
+    align-items: center;
+
+    margin-block: 0;
+    padding-inline-start: 1em;
+    border-radius: 1em;
+    background-color: white;
+    width: 89%;
+    margin-left: 7.7em;
+    height: 75vh;
+
+    .header {
+        gap: 1em;
+
+        .btn-back {
+            background-color: inherit;
+            justify-self: left;
+        }
+    }
+
+
+    .body {
+        align-self: start;
+
+        .subject {
+            align-self: end;
+            font-weight: 400;
+        }
+
+        .to {
+            align-self: start;
+        }
+
+        .from {}
+
+    }
+}
+
+.load {
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 75vh;
+
+    background-color: white;
+
+    h1 {
+        grid-column: 2 / 3;
+    }
+}

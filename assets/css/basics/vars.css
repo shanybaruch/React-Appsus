@@ -1,13 +1,14 @@
 :root {
     --bg1: rgb(245, 245, 245);
-    --bg2: ;
+    --bg2: rgb(0, 81, 255);
     --bg3: ;
     
     --color1: ;
     --color2: ;
-    --color3: ;
+    --color3: red;
 
-    --gray1: rgb(220, 220, 220);
-    --gray2: rgb(219, 219, 220);
+    --gray1: rgb(237, 237, 237);
+    --gray2: rgb(214, 214, 214);
+    --gray2-dark: rgb(148, 148, 148);
     --gray3: rgb(68, 71, 70);
 }

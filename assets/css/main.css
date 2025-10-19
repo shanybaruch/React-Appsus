@@ -25,3 +25,6 @@
 @import url('./cmps/mail/MailIndex.css');
 @import url('./cmps/mail/MailPreview.css');
 @import url('./cmps/mail/MailSideNav.css');
+@import url('./cmps/mail/MailAdd.css');
+@import url('./cmps/mail/MailDetails.css');
+@import url('./cmps/mail/MailFilter.css');

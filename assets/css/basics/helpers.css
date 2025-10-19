@@ -29,3 +29,7 @@
 .align-self-center {
     align-self: center;
 }
+
+.bold {
+    font-weight: 900;
+}

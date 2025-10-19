@@ -1,0 +1,29 @@
+.mail-filter {
+    position: absolute;
+    top: 7em;
+    right: 5em;
+    padding: 1em;
+
+    background-color: white;
+    border-radius: .5em;
+    border: 1px solid var(--gray2);
+    box-shadow: 1px 1px 15px 4px var(--gray2);
+    width: max-content;
+
+    .section-unread,
+    .section-read {
+        gap: .5em;
+
+    }
+    label {
+        margin-block: .5em;
+        margin-inline-end: 1em;
+    }
+
+    button {
+        margin: .5em;
+        padding: .5em;
+        border-radius: .3em;
+        color: var(--gray2-dark);
+    }
+}

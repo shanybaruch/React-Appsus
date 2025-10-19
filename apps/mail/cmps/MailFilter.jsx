@@ -1,50 +1,68 @@
-import { debounce } from "../services/util.service.js"
-
 const { useState, useEffect, useRef } = React
 
-export function MailFilter({ filterBy, onSetFilterBy }) {
+export function MailFilter({ defaultFilter, onSetFilterBy }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+    const [filterByToEdit, setFilterByToEdit] = useState({ ...defaultFilter })
+    const initialFilterBy = useRef({ ...defaultFilter })
 
     useEffect(() => {
         onSetFilterBy(filterByToEdit)
     }, [filterByToEdit])
 
-    // function handleChange({ target }) {
-    //     const field = target.name
-    //     let value = target.value
-    //     switch (target.type) {
-    //         case 'number':
-    //         case 'range':
-    //             value = +value
-    //             break;
+    function handleChange({ target }) {
+        const field = target.name
+        let value = target.value
 
-    //         case 'checkbox':
-    //             value = target.checked
-    //             break
-    //     }
-    //     setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
-    // }
+        switch (target.type) {
+            case 'number':
+            case 'range':
+                value = +value
+                break;
 
-     function onSubmitFilter(ev) {
+            case 'checkbox':
+                value = target.checked
+                break
+        }
+        setFilterByToEdit(filterBy => ({ ...filterBy, [field]: value }))
+    }
+
+    function onSubmitFilter(ev) {
         ev.preventDefault()
         onSetFilterBy(filterByToEdit)
     }
 
-    // const { subject, date } = filterByToEdit
+    function onClearFilter() {
+        setFilterByToEdit(initialFilterBy.current)
+    }
+
+    const { read, unread } = filterByToEdit
+    console.log('filterByToEdit:', filterByToEdit)
 
     return (
         <section className="mail-filter">
-            <form onSubmit={onSubmitFilter}>
-                        {/* <button onChange={handleChange} value={subject} name="subject" id="subject" type="button">
-                            All
-                        </button> */}
-
-
+            <form onSubmit={onSubmitFilter} className="grid">
+                <section className="section-unread flex align-center">
+                    <input
+                        onChange={handleChange}
+                        checked={filterByToEdit.unread ? true : false}
+                        id="unread"
+                        type="checkbox"
+                        name="unread" />
+                    <label htmlFor="unread">Unread Mail</label>
+                </section>
+                <section className="section-read flex align-center">
+                    <input
+                        onChange={handleChange}
+                        checked={filterByToEdit.read ? true : false}
+                        id="read"
+                        type="checkbox"
+                        name="read" />
+                    <label htmlFor="read">Read Mail</label>
+                </section>
             </form>
-            {/* <button>All</button>
-            <button>Subject</button>
-            <button >date</button> */}
+
+            <button type="button" onClick={onClearFilter}>Clear</button>
+            {/* <button>Search</button> */}
         </section>
     )
 }

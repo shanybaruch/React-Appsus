@@ -1,0 +1,87 @@
+.mail-add {
+    position: absolute;
+    bottom: 0;
+    right: 3em;
+
+    border-radius: .5em;
+    border: 1px solid var(--gray2);
+    box-shadow: 1px 1px 15px 4px var(--gray2);
+    width: 60vw;
+
+    .form {
+        padding-inline: .8em;
+        padding-block: .3em;
+        background-color: white;
+
+    }
+
+    .add-mail-header {
+        background-color: var(--bg1);
+        border-radius: .5em;
+        padding: .6em;
+
+        .btns {
+            .btn-open-full a {
+                font-size: .7rem;
+            }
+
+            .btn {
+                border: 0;
+                background-color: inherit;
+            }
+        }
+    }
+
+    .title {
+        font-size: .9em;
+        font-weight: 400;
+    }
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: inherit;
+    }
+
+    input,
+    textarea {
+        border: 0;
+        width: 100%;
+    }
+
+    .section-input-to {
+        border-bottom: 1px solid var(--gray2);
+
+        .label-to {
+            font-size: .9rem;
+            padding-right: .4em;
+        }
+
+        .input-to {
+            padding-block: .5em;
+            width: 100%;
+        }
+    }
+
+    .input-subject {
+        border-bottom: 1px solid var(--gray2);
+        padding-block: .5em;
+    }
+
+    textarea {
+        padding-block: .5em;
+    }
+
+    .btn-send {
+        border: 0;
+        width: max-content;
+        padding-block: .8em;
+        margin-bottom: .4em;
+        border-radius: 5em;
+        background-color: var(--bg2);
+        color: var(--bg1);
+        padding-inline: 1.5em;
+    }
+
+}

@@ -6,19 +6,21 @@ import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailSideNav } from "../cmps/MailSideNav.jsx"
 
 const { useState, useEffect } = React
-const { Link, useSearchParams } = ReactRouterDOM
+const { Link, Outlet, useSearchParams } = ReactRouterDOM
 
 export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
+    const [filterBy, setFilterBy] = useState({  txt: '', unread: false, read: false  })
+    const [isFilterOpen, setIsFilterOpen] = useState(false)
 
     useEffect(() => {
         console.log('filterby: ', filterBy);
         setSearchParams(mailService.cleanObject(filterBy))
         loadMails()
     }, [filterBy])
+
 
     function loadMails() {
         mailService.query(filterBy)
@@ -28,6 +30,12 @@ export function MailIndex() {
                 showErrorMsg('Cannot get mails!')
             })
     }
+
+
+    function handleToggleFilter(isOpen) {
+        setIsFilterOpen(isOpen)
+    }
+
 
     function onRemoveMail(mailId) {
         mailService.remove(mailId)
@@ -41,6 +49,7 @@ export function MailIndex() {
             })
     }
 
+
     function onSetFilterBy(newFilterBy) {
         setFilterBy(prevFilter => ({ ...prevFilter, ...newFilterBy }))
     }
@@ -48,24 +57,23 @@ export function MailIndex() {
     if (!mails) return <div className="loader">Loading...</div>
     return (
         <section className="mail-index container">
-            <section className="header grid">
-                <MailHeader />
 
+            <section className="header grid">
+                <MailHeader onToggleFilter={handleToggleFilter} />
                 <section className="main-page grid">
                     <section className="main-side flex">
-                        <Link className="add-mail" to="/mail/edit"> <span className="fa-solid fa-pen"></span>Compose</Link>
-                        <MailSideNav />
+                        <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
+                        <MailSideNav mails={mails} />
                     </section>
                     <MailList
                         mails={mails}
                         onRemoveMail={onRemoveMail}
                     />
+                    <Outlet />
                 </section>
-
-                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
-
-
+                {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />}
             </section>
+
         </section>
     )
 }
