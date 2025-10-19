@@ -14,14 +14,15 @@
     padding-inline-start: 1em;
     border-radius: 1em;
     background-color: white;
-    width: 89%;
-    margin-left: 7.7em;
+    width: 86%;
+    margin-left: 9.8em;
     height: 75vh;
 
     .header {
         gap: 1em;
 
         .btn-back {
+            margin-top: 1em;
             background-color: inherit;
             justify-self: left;
         }
@@ -50,7 +51,9 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
-    width: 97%;
+
+    margin-left: 9.8em;
+    width: 86%;
     height: 75vh;
 
     background-color: white;
