@@ -21,18 +21,19 @@
 }
 
 .from {
-    font-size: .9rem;
+    font-size: .8rem;
 }
 
 .mail-subject {
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: 400;
     color: var(--gray3);
 }
 
 .mail-txt {
-    color: #5f6368;
-    font-size: .9rem;
+    color: var(--gray2-dark);
+    font-size: .8rem;
+    font-weight: 300;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -41,6 +42,6 @@
 
 .mail-date {
     text-align: right;
-    color: #5f6368;
-    font-size: 0.8rem;
+    color: var(--gray2-dark);
+    font-size: 0.7rem;
 }

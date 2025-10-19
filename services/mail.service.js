@@ -28,6 +28,9 @@ function query(filterBy = {}) {
             if (filterBy.read) {
                 mails = mails.filter(mail => mail.read === filterBy.read)
             }
+            if (filterBy.unread) {
+                mails = mails.filter(mail => mail.read === false)
+            }
             console.log(' mails:', mails)
             return mails
         })

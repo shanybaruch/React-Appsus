@@ -9,6 +9,7 @@ import { MailIndex } from './apps/mail/pages/MailIndex.jsx'
 import { NoteIndex } from './apps/note/pages/NoteIndex.jsx'
 import { MailAdd } from './apps/mail/cmps/MailAdd.jsx'
 import { MailDetails } from './apps/mail/cmps/MailDetails.jsx'
+import { MailFilter } from './apps/mail/cmps/MailFilter.jsx'
 
 export function RootCmp() {
     return <Router>

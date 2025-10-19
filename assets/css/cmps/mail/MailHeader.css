@@ -52,6 +52,7 @@
                 position: absolute;
                 right: .9em;
                 top: .8em;
+                cursor: pointer;
             }
 
             /* .search-icon {
