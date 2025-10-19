@@ -1,6 +1,7 @@
 .mail-preview {
     align-items: center;
-    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-columns: 2fr 5fr 1fr;
+    gap: .3em;
 
     background-color: white;
     padding: 0.4em;
