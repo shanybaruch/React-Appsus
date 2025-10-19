@@ -16,7 +16,7 @@
     }
 
     .add-mail-header {
-        background-color: var(--gray1);
+        background-color: var(--bg1);
         border-radius: .5em;
         padding: .6em;
 
@@ -80,7 +80,7 @@
         margin-bottom: .4em;
         border-radius: 5em;
         background-color: var(--bg2);
-        color: var(--gray1);
+        color: var(--bg1);
         padding-inline: 1.5em;
     }
 
