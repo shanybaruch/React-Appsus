@@ -2,7 +2,7 @@ import { NotePreview } from "./NotePreview.jsx"
 import { NoteIndex } from "../pages/NoteIndex.jsx"
 
 
-export function NoteList({ notes, onRemoveNote, onSelectNoteId }) {
+export function NoteList({ notes, onRemoveNote, onSelectNoteId, onSetColorNote, onSetTxtNote }) {
     if (!notes || !notes.length) return <div>No Notes To Show...</div>
 
     return (
@@ -13,6 +13,8 @@ export function NoteList({ notes, onRemoveNote, onSelectNoteId }) {
                         note={note} 
                         onClick={() => onSelectNoteId(note.id)}
                         onRemoveNote={onRemoveNote} 
+                        onSetColorNote={onSetColorNote}
+                        onSetTxtNote={onSetTxtNote}
                     />
                 </li>
             ))}

@@ -35,6 +35,14 @@ export function NoteIndex() {
             .catch(err => console.log('err:', err))
     }
 
+    function onSetColorNote(){
+        console.log('color');
+    }
+
+    function onSetTxtNote() {
+        console.log('txt');
+    }
+
     function onSelectNoteId(noteId) {
         setSelectedNoteId(noteId)
     }
@@ -52,6 +60,8 @@ export function NoteIndex() {
                 notes={notes}
                 onRemoveNote={onRemoveNote}
                 onSelectNoteId={onSelectNoteId}
+                onSetColorNote={onSetColorNote}
+                onSetTxtNote={onSetTxtNote}
             />
         </section>
     )

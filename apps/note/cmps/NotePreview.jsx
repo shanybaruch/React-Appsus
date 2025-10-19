@@ -1,12 +1,22 @@
 import { NotePreviewIcon } from "../cmps/NotePreviewIcon.jsx"
 
-export function NotePreview({ note, onClick, onRemoveNote  }) {
+export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetColor }) {
     const { type, info, style } = note
 
-    console.log(note);
-    
-    
-   return (
+    function onSetColor(noteId, color) {
+        console.log(noteId, color);
+        
+        setNotes(prevNotes =>
+            prevNotes.map(note =>
+                note.id === noteId
+                    ? { ...note, style: { ...note.style, backgroundColor: color } }
+                    : note
+            )
+        )
+    }
+
+
+    return (
         <article className="note-preview" style={style} onClick={onClick}>
             {type === 'NoteTxt' && <p class="NoteTxt" style={style}>{info.txt}</p>}
             {type === 'NoteImg' && (
@@ -28,10 +38,12 @@ export function NotePreview({ note, onClick, onRemoveNote  }) {
                     </ul>
                 </div>
             )}
-            <NotePreviewIcon 
-            note={note} 
-            onClick={onClick}
-            onRemoveNote={onRemoveNote} />
+            <NotePreviewIcon
+                note={note}
+                onClick={onClick}
+                onRemoveNote={onRemoveNote}
+                onSetTxtNote={onSetTxtNote}
+                onSetColor={onSetColor} />
         </article>
     )
 }

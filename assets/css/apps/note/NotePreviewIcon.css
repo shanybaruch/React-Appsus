@@ -43,3 +43,8 @@
     cursor: pointer;
     transition: transform 0.2s ease, color 0.2s ease;
 }
+
+.icon-trash{
+    position: relative;
+    overflow: hidden;
+}
