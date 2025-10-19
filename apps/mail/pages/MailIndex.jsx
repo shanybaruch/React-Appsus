@@ -53,7 +53,7 @@ export function MailIndex() {
                 <section className="main-page grid">
                     <section className="main-side flex">
                         <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
-                        <MailSideNav />
+                        <MailSideNav mails={mails} />
                     </section>
                     <MailList
                         mails={mails}

@@ -1,5 +1,35 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 .mail-side-nav {
     padding-inline-start: .8em;
     margin: 0;
-    /* font-size: .9rem; */
+    font-size: .9rem;
+    padding: 0;
+
+
+    .section-inbox {
+        height: auto;
+
+        .left-side {
+            gap: .5em;
+            height: max-content;
+
+            .icon-inbox {
+                line-height: 1;
+            }
+
+            .inbox {
+                margin: 0;
+            }
+        }
+
+        .unread-count {
+            font-size: .8rem;
+            font-weight: 600;
+        }
+    }
 }
