@@ -1,9 +1,10 @@
 const { useState, useEffect, useRef } = React
 
-export function MailFilter({ defaultFilter, onSetFilterBy }) {
+export function MailFilter({ defaultFilter, onSetFilterBy, onToggleFilter }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...defaultFilter })
     const initialFilterBy = useRef({ ...defaultFilter })
+
 
     useEffect(() => {
         onSetFilterBy(filterByToEdit)
@@ -62,6 +63,7 @@ export function MailFilter({ defaultFilter, onSetFilterBy }) {
             </form>
 
             <button type="button" onClick={onClearFilter}>Clear</button>
+            <button type="button" onClick={onToggleFilter}>Close</button>
         </section>
     )
 }

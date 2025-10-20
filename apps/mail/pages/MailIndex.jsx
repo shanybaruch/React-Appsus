@@ -34,8 +34,8 @@ export function MailIndex() {
             })
     }
 
-    function handleToggleFilter(isOpen) {
-        setIsFilterOpen(isOpen)
+    function handleToggleFilter() {
+        setIsFilterOpen(prevIsFilterOpen => !prevIsFilterOpen)
     }
 
     function handleToggleAdd(shouldReload = false) {
@@ -83,8 +83,8 @@ export function MailIndex() {
                         /> */}
                     </section>
                     {/* <Outlet /> */}
-                {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
-                {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />}
+                    {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
+                    {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} onToggleFilter={handleToggleFilter} />}
                 </section>
             </section>
 
