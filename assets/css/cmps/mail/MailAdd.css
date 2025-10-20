@@ -1,12 +1,14 @@
 .mail-add {
     position: absolute;
     bottom: 0;
-    right: 3em;
+    right: 1em;
 
     border-radius: .5em;
     border: 1px solid var(--gray2);
     box-shadow: 1px 1px 15px 4px var(--gray2);
-    width: 60vw;
+    width: 50%;
+    height: 40%;
+    background-color: var(--bg1);
 
     .form {
         padding-inline: .8em;
@@ -77,7 +79,7 @@
         border: 0;
         width: max-content;
         padding-block: .8em;
-        margin-bottom: .4em;
+        /* margin-bottom: .4em; */
         border-radius: 5em;
         background-color: var(--bg2);
         color: var(--bg1);

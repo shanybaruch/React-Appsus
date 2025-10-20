@@ -14,7 +14,6 @@ import { MailFilter } from './apps/mail/cmps/MailFilter.jsx'
 export function RootCmp() {
     return <Router>
         <section className="root-cmp">
-            <AppHeader />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -25,6 +24,7 @@ export function RootCmp() {
                 <Route path="/book" element />
             </Routes>
             <UserMsg />
+            <AppHeader />
         </section>
     </Router>
 }
