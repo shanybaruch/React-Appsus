@@ -48,13 +48,11 @@ export function MailList({ mails, onRemoveMail }) {
                     style={{ position: 'relative' }}
                     onClick={(ev) => handleMailClick(mail.id, ev)}
                 >
-                    {/* <Link to={`/mail/${mail.id}`}> */}
                     <MailPreview
                         mail={mail}
                         isSelected={selectedMails.includes(mail.id)}
                         onToggle={() => toggleSelection(mail.id)}
                     />
-                    {/* </Link> */}
                 </div>
             ))}
         </section>

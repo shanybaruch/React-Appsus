@@ -71,18 +71,20 @@ export function MailIndex() {
 
             <section className="header grid">
                 <MailHeader onToggleFilter={handleToggleFilter} />
-                <section className="main-page grid">
-                    <section className="main-side flex">
-                        <button className="section-compose " onClick={handleToggleAdd}>
+                <section className="page grid">
+                    <section className="page-side flex">
+                        <button className="btn-compose " onClick={handleToggleAdd}>
                             <span className="fa-solid fa-pen"></span>
                             Compose
                         </button>
                         <MailSideNav mails={mails} />
                     </section>
-                    <MailList
-                        mails={mails}
-                        onRemoveMail={onRemoveMail}
-                    />
+                    <section className="page-main">
+                        <MailList
+                            mails={mails}
+                            onRemoveMail={onRemoveMail}
+                        />
+                    </section>
                     <Outlet />
                 </section>
                 {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
