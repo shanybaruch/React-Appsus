@@ -1,6 +1,6 @@
 .mail-index {
     background-color: var(--bg1);
-    height: 100vh;
+    height: calc(100vh - 64px );
 
     .btn-compose {
         padding: 1.3em;
