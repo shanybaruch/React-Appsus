@@ -27,6 +27,7 @@ export function MailHeader({ onToggleFilter }) {
 
             <section className="search-line">
                 <section className="input-container">
+                    <span className="search fa-solid fa-magnifying-glass"></span>
                     <input type="text" placeholder="Search mail" className="search-input" />
                     <span className="sort fa-solid fa-sliders" onClick={toggleIsOpen}></span>
                 </section>

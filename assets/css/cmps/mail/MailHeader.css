@@ -13,11 +13,12 @@
         align-items: center;
 
         .logo-img {
-            width: 30px;
+            width: 33px;
         }
 
         .logo-title {
             display: inline;
+            font-size: 1.2rem;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             margin-inline-start: .5em;
@@ -40,7 +41,8 @@
                 border: 0;
                 background-color: var(--gray2);
                 border-radius: 2rem;
-                padding: 1em;
+                padding: 1.2em;
+                padding-inline-start: 3em;
                 width: 50vw;
                 color: var(--gray3);
                 padding-right: 35px;
@@ -48,27 +50,25 @@
                 position: relative;
             }
 
+            .search {
+                position: absolute;
+                left: .9em;
+                top: .95em;
+                cursor: pointer;
+                z-index: 2;
+            }
+
             .sort {
                 position: absolute;
                 right: .9em;
-                top: .8em;
+                top: .95em;
                 cursor: pointer;
             }
-
-            /* .search-icon {
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-
-                color: var(--gray3);
-                cursor: pointer;
-            } */
         }
 
     }
 
     .settings {
-        margin-inline-end: .5em;
+        margin-inline-end: 1em;
     }
 }

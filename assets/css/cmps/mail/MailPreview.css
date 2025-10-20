@@ -4,7 +4,7 @@
     gap: .3em;
 
     background-color: white;
-    padding: 0.4em;
+    padding: 0.5em;
     border-bottom: 1px solid var(--gray2);
     cursor: pointer;
     transition: background-color 0.4s ease;
@@ -21,7 +21,7 @@
 }
 
 .from {
-    font-size: .8rem;
+    font-size: .9rem;
 }
 
 .mail-subject {
@@ -43,5 +43,5 @@
 .mail-date {
     text-align: right;
     color: var(--gray2-dark);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
