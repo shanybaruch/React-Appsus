@@ -1,6 +1,6 @@
 .mail-index {
     background-color: var(--bg1);
-    height: calc(100vh - 64px );
+    height: calc(100vh - 64px);
 
     .btn-compose {
         padding: 1.3em;
@@ -18,11 +18,17 @@
 
     .page {
         grid-template-columns: 1fr 10fr;
-        margin-block-start: 1em;
+        /* padding-block-start: 1em; */
         height: 100%;
+
+        .page-main {
+            margin-inline: 1rem;
+
+        }
 
 
         .page-side {
+            margin-inline: 1rem;
             z-index: 1;
             flex-direction: column;
             height: 100%;

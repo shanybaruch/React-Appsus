@@ -5,60 +5,57 @@
 }
 
 .mail-details {
-    position: absolute;
+    position: relative;    
+    grid-template-columns: 1fr 10fr;
+    
+    .page-details {
+        position: absolute;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        
+        margin-block: 0;
+        padding-inline-start: 1em;
+        border-radius: .2em;
+        background-color: white;
+        box-shadow: 1px 1px 8px 1px var(--gray1);
+        width: calc(100% - 9%);
 
-    grid-template-rows: 1fr 3fr;
-    align-items: center;
+      
 
-    margin-block: 0;
-    padding-inline-start: 1em;
-    border-radius: 1em;
-    background-color: white;
-    width: 86%;
-    margin-left: 9.8em;
-    height: 75vh;
-
-    .header {
-        gap: 1em;
-
-        .btn-back {
-            margin-top: 1em;
-            background-color: inherit;
-            justify-self: left;
-        }
-    }
+            .btn-back {
+                padding-block: 1em;
+                background-color: inherit;
+                justify-self: left;
+            }
+        
 
 
-    .body {
-        align-self: start;
-
-        .subject {
-            align-self: end;
-            font-weight: 400;
-        }
-
-        .to {
+        .body {
             align-self: start;
+
+            .subject {
+                align-self: center;
+
+                font-weight: 400;
+            }
+
+            .to {
+                align-self: start;
+                font-size: .9rem;
+            }
+
+            .from {}
+
         }
-
-        .from {}
-
     }
 }
 
 .load {
-    position: absolute;
-    grid-template-columns: 1fr 1fr;
+    position: relative;
     align-items: center;
     justify-content: center;
 
-    margin-left: 9.8em;
-    width: 86%;
-    height: 75vh;
-
-    background-color: white;
-
     h1 {
-        grid-column: 2 / 3;
+        font-size: 1.5rem;
     }
 }

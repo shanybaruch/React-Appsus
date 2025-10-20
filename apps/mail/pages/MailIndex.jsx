@@ -5,6 +5,7 @@ import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailSideNav } from "../cmps/MailSideNav.jsx"
 import { MailAdd } from "../cmps/MailAdd.jsx"
+import { MailDetails } from "../cmps/MailDetails.jsx"
 
 const { useState, useEffect } = React
 const { Link, Outlet, useSearchParams } = ReactRouterDOM
@@ -32,11 +33,6 @@ export function MailIndex() {
                 showErrorMsg('Cannot get mails!')
             })
     }
-
-    //  function handleChildChange(value) {
-    //     { value ? !value : value }
-    //     setIsAddOpen(value)
-    // }
 
     function handleToggleFilter(isOpen) {
         setIsFilterOpen(isOpen)
@@ -69,7 +65,7 @@ export function MailIndex() {
     return (
         <section className="mail-index container">
 
-            <section className="header grid">
+            <section className="page-index grid">
                 <MailHeader onToggleFilter={handleToggleFilter} />
                 <section className="page grid">
                     <section className="page-side flex">
@@ -80,15 +76,16 @@ export function MailIndex() {
                         <MailSideNav mails={mails} />
                     </section>
                     <section className="page-main">
-                        <MailList
+                        <Outlet context={{ mails, onRemoveMail }} />
+                        {/* <MailList
                             mails={mails}
                             onRemoveMail={onRemoveMail}
-                        />
+                        /> */}
                     </section>
-                    <Outlet />
-                </section>
+                    {/* <Outlet /> */}
                 {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
                 {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />}
+                </section>
             </section>
 
         </section>

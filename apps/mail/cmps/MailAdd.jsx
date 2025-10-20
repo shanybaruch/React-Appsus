@@ -9,7 +9,7 @@ export function MailAdd({ onToggleAdd }) {
     const [mailToAdd, setMailToAdd] = useState(mailService.getEmptyMail())
     const [isLoading, setIsLoading] = useState(false)
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const { MailId } = useParams()
 
     useEffect(() => {
@@ -20,10 +20,10 @@ export function MailAdd({ onToggleAdd }) {
         setIsLoading(true)
         mailService.get(MailId)
             .then(mail => {
-                if (!mail) {
-                    navigate('/mail')
-                    return
-                }
+                // if (!mail) {
+                //     navigate('/mail')
+                //     return
+                // }
                 const formMail = {
                     id: mail.id || '',
                     subject: mail.subject || '',
@@ -35,7 +35,7 @@ export function MailAdd({ onToggleAdd }) {
             })
             .catch(err => {
                 console.log('err:', err)
-                navigate('/mail')
+                // navigate('/mail')
             })
             .finally(() => setIsLoading(false))
     }
