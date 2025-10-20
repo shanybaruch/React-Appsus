@@ -3,11 +3,13 @@
     gap: 10px;
 }
 
-.note-preview{
-    border: solid 1px black;
-    border-radius: 10px;
-    /* box-sizing: border-box; */
-    padding: 12px 16px 12px 16px;
-    width: 238.4px;
-}
 
+.note-preview {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    padding-bottom: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
