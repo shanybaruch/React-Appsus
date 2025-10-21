@@ -66,7 +66,7 @@ export function MailIndex() {
         <section className="mail-index container">
 
             <section className="page-index grid">
-                <MailHeader onToggleFilter={handleToggleFilter} />
+                <MailHeader onToggleFilter={handleToggleFilter} defaultFilter={filterBy} onSetFilterBy={onSetFilterBy} />
                 <section className="page grid">
                     <section className="page-side flex">
                         <button className="btn-compose " onClick={handleToggleAdd}>
