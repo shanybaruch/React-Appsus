@@ -1,42 +1,50 @@
+body, .note-index {
+    background-color: rgba(238, 235, 235, 0.949); /* שקיפות 0.2 */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.note-preview:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
 .nav-note-icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 12px;
-    padding: 5px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 00;
+  height: 40px;
 
-    position: absolute;
-    bottom: -70px;
-    left: 0;
-    right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 
-    opacity: 0;
-    transform: translateY(30px);
-    transition:
-        opacity 0.4s ease,
-        transform 0.4s ease,
-        bottom 0.4s ease;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 3;
 }
 
 .note-preview:hover .nav-note-icons {
-    bottom: 0;
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .nav-note-icons i {
-    font-size: 1.2rem;
-    color: #333;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.icon-trash{
-    position: relative;
-    overflow: hidden;
+.nav-note-icons i:hover {
+  transform: scale(1.2);
+  color: #000;
 }

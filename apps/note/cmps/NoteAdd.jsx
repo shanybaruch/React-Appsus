@@ -1,87 +1,59 @@
+const { useState } = React;
 
+export function NoteAdd({ onAddNote }) {
+    const [inputTxt, setInputTxt] = useState('');
+    const [imageUrl, setImageUrl] = useState(null);
 
-const { useState, useEffect } = React
+    function onImgInput(ev) {
+        const file = ev.target.files[0];
+        if (!file) return;
 
-export function NoteAdd({ notes, setNotes, onAddNote }) {
-    const [inputValueTxt, setInputTxt] = useState('');
-    const [inputValueImg, setInputImg] = useState('');
-    const [placeholder, setPlaceholder] = useState('New Note');
-    const [placeholderImg, setPlaceholderImg] = useState('add link');
-    const [inputValueTodo, setInputTodo] = useState('');
-    const [placeholderTodo, setPlaceholderTodo] = useState('add todo');
-    const [noteType, setNoteType] = useState('NoteTxt');
-    const [imgInputVisible, setImgInputVisible] = useState(false);
-    const [todoInputVisible, setTodoInputVisible] = useState(false);
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            setImageUrl(event.target.result); // תצוגה מקדימה
+        };
+        reader.readAsDataURL(file);
+    }
 
-    // const [notes, setNotes] = useState(null)
+    function handleSave(type) {
+        if (type === 'NoteTxt' && !inputTxt) return;
+        if (type === 'NoteImg' && !imageUrl) return;
 
-    function addNote(type, inputValueTxt, inputValueImg) {
-        setImgInputVisible(false)
-        setTodoInputVisible(false)
-        setInputTxt('')
-        setInputImg('')
-        setPlaceholder('New Note')
+        // שולח ל-parent ליצור פתק חדש
+        onAddNote(type, inputTxt, imageUrl);
 
-        if (type === 'NoteTxt') onAddNote(type, inputValueTxt)
-        if (type === 'NoteImg') {
-            if (inputValueTxt || inputValueImg) {
-                return
-            }
-            else {
-                setImgInputVisible(true)
-                setNoteType('NoteImg')
-                setPlaceholderImg('Add image link')
-                setPlaceholder('Add Text')
-                setInputTxt('')
-            }
-        }
-        if (type === 'NoteTodos') {onAddNote(type,inputValueTxt,'', inputValueTodo)
-            console.log(inputValueTodo);
-            
-        }
-
-        if (!inputValueTxt) return
+        // איפוס
+        setInputTxt('');
+        setImageUrl(null);
     }
 
     return (
         <section className="add-note">
-            <form action="">
-                <input type="text"
-                    value={inputValueTxt}
+            <div className="text-note">
+                <input
+                    type="text"
+                    placeholder="New Note"
+                    value={inputTxt}
                     onChange={(e) => setInputTxt(e.target.value)}
-                    placeholder={placeholder} />
-
-                <button type="button" onClick={() => addNote('NoteTxt', inputValueTxt)}>txt</button>
-                <button type="button" onClick={() => setTodoInputVisible(true)}>checkbox</button>
-                <div className={todoInputVisible ? 'container-todo visible' : 'container-todo hidden'}>
-                    <input type="text"
-                        className="input-todo"
-                        value={inputValueTodo}
-                        onChange={(e) => setInputTodo(e.target.value)}
-                        placeholder={placeholderTodo} />
-
-                </div>
-                <div className={todoInputVisible ? 'input-todo visible' : 'input-todo hidden'}>
-                    <button type="button" onClick={() => addNote('NoteTodo', inputValueTxt,'', inputValueTodo)}>save</button>
-                    <button>+</button>
-                </div>  
-
-
-                <button type="button" onClick={() => setImgInputVisible(true)}>img</button>
-                <input type="text"
-                    className={imgInputVisible ? 'input-img visible' : 'input-img hidden'}
-                    value={inputValueImg}
-                    onChange={(e) => setInputImg(e.target.value)}
-                    placeholder={placeholderImg} />
-
-
-            </form>
-            <div className={imgInputVisible ? 'input-img visible' : 'input-img hidden'}>
-                <button type="button" onClick={() => addNote('NoteImg', inputValueTxt, inputValueImg)}>save</button>
+                />
+                <button type="button" onClick={() => handleSave('NoteTxt')}>
+                    Add Text
+                </button>
             </div>
 
-
+            <div className="img-note">
+                <label htmlFor="file-input">Add Image</label>
+                <input
+                    id="file-input"
+                    type="file"
+                    accept=".jpg, .jpeg, .png, .webp"
+                    onChange={onImgInput}
+                />
+                {imageUrl && <img src={imageUrl} alt="Preview" style={{ maxWidth: '200px' }} />}
+                <button type="button" onClick={() => handleSave('NoteImg')}>
+                    Add Image Note
+                </button>
+            </div>
         </section>
-    )
-
+    );
 }
