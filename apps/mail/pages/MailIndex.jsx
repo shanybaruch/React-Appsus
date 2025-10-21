@@ -4,6 +4,8 @@ import { mailService } from "../../../services/mail.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailSideNav } from "../cmps/MailSideNav.jsx"
+import { MailAdd } from "../cmps/MailAdd.jsx"
+import { MailDetails } from "../cmps/MailDetails.jsx"
 
 const { useState, useEffect } = React
 const { Link, Outlet, useSearchParams } = ReactRouterDOM
@@ -12,8 +14,9 @@ export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [filterBy, setFilterBy] = useState({  txt: '', unread: false, read: false  })
+    const [filterBy, setFilterBy] = useState({ txt: '', unread: false, read: false })
     const [isFilterOpen, setIsFilterOpen] = useState(false)
+    const [isAddOpen, setIsAddOpen] = useState(false)
 
     useEffect(() => {
         console.log('filterby: ', filterBy);
@@ -31,9 +34,13 @@ export function MailIndex() {
             })
     }
 
+    function handleToggleFilter() {
+        setIsFilterOpen(prevIsFilterOpen => !prevIsFilterOpen)
+    }
 
-    function handleToggleFilter(isOpen) {
-        setIsFilterOpen(isOpen)
+    function handleToggleAdd(shouldReload = false) {
+        setIsAddOpen(prevIsAddOpen => !prevIsAddOpen)
+        if (shouldReload) loadMails()
     }
 
 
@@ -58,20 +65,27 @@ export function MailIndex() {
     return (
         <section className="mail-index container">
 
-            <section className="header grid">
+            <section className="page-index grid">
                 <MailHeader onToggleFilter={handleToggleFilter} />
-                <section className="main-page grid">
-                    <section className="main-side flex">
-                        <Link className="add-mail" to="/mail/add"> <span className="fa-solid fa-pen"></span>Compose</Link>
+                <section className="page grid">
+                    <section className="page-side flex">
+                        <button className="btn-compose " onClick={handleToggleAdd}>
+                            <span className="fa-solid fa-pen"></span>
+                            Compose
+                        </button>
                         <MailSideNav mails={mails} />
                     </section>
-                    <MailList
-                        mails={mails}
-                        onRemoveMail={onRemoveMail}
-                    />
-                    <Outlet />
+                    <section className="page-main">
+                        <Outlet context={{ mails, onRemoveMail }} />
+                        {/* <MailList
+                            mails={mails}
+                            onRemoveMail={onRemoveMail}
+                        /> */}
+                    </section>
+                    {/* <Outlet /> */}
+                    {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
+                    {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} onToggleFilter={handleToggleFilter} />}
                 </section>
-                {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />}
             </section>
 
         </section>

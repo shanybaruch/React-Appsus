@@ -7,25 +7,24 @@ import { About } from './pages/About.jsx'
 import { Home } from './pages/Home.jsx'
 import { MailIndex } from './apps/mail/pages/MailIndex.jsx'
 import { NoteIndex } from './apps/note/pages/NoteIndex.jsx'
-import { MailAdd } from './apps/mail/cmps/MailAdd.jsx'
 import { MailDetails } from './apps/mail/cmps/MailDetails.jsx'
-import { MailFilter } from './apps/mail/cmps/MailFilter.jsx'
+import { MailList } from './apps/mail/cmps/MailList.jsx'
 
 export function RootCmp() {
     return <Router>
         <section className="root-cmp">
-            <AppHeader />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/mail" element={<MailIndex />}>
-                    <Route path="add" element={<MailAdd />} />
+                    <Route index element={<MailList />} />
                     <Route path=":mailId" element={<MailDetails />} />
                 </Route>
                 <Route path="/note" element={<NoteIndex />} />
                 <Route path="/book" element />
             </Routes>
             <UserMsg />
+            <AppHeader />
         </section>
     </Router>
 }

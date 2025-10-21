@@ -3,7 +3,7 @@ export function MailPreview({ mail, isSelected, onToggle }) {
     // console.log(date);
 
     return (
-        <article className={`mail-preview grid ${read ? 'read' : ''}`}>
+        <article className={`mail-preview grid ${read ? 'read' : 'unread'}`}>
             <section className="checkbox-sub flex">
                 <input
                 className="mail-checkbox"

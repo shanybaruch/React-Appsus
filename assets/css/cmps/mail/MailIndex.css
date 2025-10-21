@@ -1,28 +1,37 @@
 .mail-index {
     background-color: var(--bg1);
+    height: calc(100vh - 64px);
 
-    /* background-color: black; */
-    .add-mail {
+    .btn-compose {
         padding: 1.3em;
         border-radius: 2em;
         box-shadow: 1px 1px 4px 1px var(--gray2);
         width: max-content;
-        font-size: .8rem;
+        font-size: .9rem;
         margin-block-end: 1em;
+        background-color: var(--bg1);
 
         span {
             padding-inline-end: .6em;
         }
     }
 
-    .main-page {
-        grid-template-columns: 1fr 8fr;
-        margin-block-start: 1em;
-        
-        
-        .main-side {
+    .page {
+        grid-template-columns: 1fr 10fr;
+        /* padding-block-start: 1em; */
+        height: 100%;
+
+        .page-main {
+            margin-inline: 1rem;
+
+        }
+
+
+        .page-side {
+            margin-inline: 1rem;
             z-index: 1;
             flex-direction: column;
+            height: 100%;
         }
     }
 }

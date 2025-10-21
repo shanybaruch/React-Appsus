@@ -1,13 +1,13 @@
 import { MailPreview } from "./MailPreview.jsx"
 
 const { useState } = React
-const { Link, Outlet, useNavigate } = ReactRouterDOM
+const { Link, Outlet, useNavigate, useOutletContext } = ReactRouterDOM
 
-export function MailList({ mails, onRemoveMail }) {
+export function MailList() {
 
     const [selectedMails, setSelectedMails] = useState([]);
-    const navigate = useNavigate() 
-
+    const navigate = useNavigate()
+    const { mails, onRemoveMail } = useOutletContext()
 
     function toggleSelection(mailId) {
         setSelectedMails(prev =>
@@ -48,13 +48,11 @@ export function MailList({ mails, onRemoveMail }) {
                     style={{ position: 'relative' }}
                     onClick={(ev) => handleMailClick(mail.id, ev)}
                 >
-                    {/* <Link to={`/mail/${mail.id}`}> */}
                     <MailPreview
                         mail={mail}
                         isSelected={selectedMails.includes(mail.id)}
                         onToggle={() => toggleSelection(mail.id)}
                     />
-                    {/* </Link> */}
                 </div>
             ))}
         </section>

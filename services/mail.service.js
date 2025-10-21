@@ -25,12 +25,15 @@ function query(filterBy = {}) {
             if (filterBy.from) {
                 mails = mails.filter(mail => mail.from === filterBy.from)
             }
-            if (filterBy.read) {
-                mails = mails.filter(mail => mail.read === filterBy.read)
+
+            const { read, unread } = filterBy;
+            if (read && unread) {
+            } else if (unread) {
+                mails = mails.filter(mail => !mail.read)
+            } else if (read) {
+                mails = mails.filter(mail => mail.read) 
             }
-            if (filterBy.unread) {
-                mails = mails.filter(mail => mail.read === false)
-            }
+            
             console.log(' mails:', mails)
             return mails
         })
