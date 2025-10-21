@@ -1,19 +1,20 @@
 import { NotePreviewIcon } from "../cmps/NotePreviewIcon.jsx"
 
+
 export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetColorNote, onUpdateNote }) {
     const { type, info, style } = note
     
     return (
         <article className="note-preview" style={style} onClick={onClick}>
-            {type === 'NoteTxt' && <p class="NoteTxt" style={style}>{info.txt}</p>}
+            {type === 'NoteTxt' && <p className="NoteTxt" style={style}>{info.txt}</p>}
             {type === 'NoteImg' && (
-                <div class="NoteImg" style={style}>
+                <div className="NoteImg" style={style}>
                     <h4>{info.title}</h4>
                     <img src={info.url} alt={info.title} />
                 </div>
             )}
             {type === 'NoteTodos' && (
-                <div class="NoteTodos" style={style}>
+                <div className="NoteTodos" style={style}>
                     <h4>{info.title}</h4>
                     <ul>
                         {info.todos.map((todo, idx) => (
@@ -32,6 +33,7 @@ export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetCo
                 onSetTxtNote={onSetTxtNote}
                 onSetColorNote={onSetColorNote}
                 onUpdateNote={onUpdateNote} />
+            
         </article>
     )
 }
