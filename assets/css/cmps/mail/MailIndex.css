@@ -1,6 +1,9 @@
 .mail-index {
     background-color: var(--bg1);
-    height: calc(100vh - 64px);
+    /* height: calc(100vh - 64px); */
+    /* height: 80%; */
+    /* overflow-y: scroll; */
+    
 
     .btn-compose {
         padding: 1.3em;
@@ -16,8 +19,13 @@
         }
     }
 
+    .page-index {
+        height: 100%;
+    }
+
     .page {
-        grid-template-columns: 1fr 9fr;
+        grid-template-columns: 1fr 6fr;
+        height: 100%;
 
         .page-main {
           
