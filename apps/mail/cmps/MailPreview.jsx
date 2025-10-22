@@ -23,7 +23,7 @@ export function MailPreview({ mail, isSelected, onToggle, onRemoveMail }) {
                     onRemoveMail(mail.id);
                 }}
             >
-                <span class="fa-solid fa-trash"></span>
+                <span className="fa-solid fa-trash"></span>
             </span>
         </article>
     )
