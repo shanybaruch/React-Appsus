@@ -1,7 +1,7 @@
 .mail-index {
     background-color: var(--bg1);
-    /* height: calc(100vh - 64px); */
-    /* height: 80%; */
+    height: calc(100vh - 64px);
+    height: 100%;
     /* overflow-y: scroll; */
     
 

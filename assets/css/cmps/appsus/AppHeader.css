@@ -1,14 +1,17 @@
 .app-header {
- 
-    nav {
+    position: fixed;
+    width: 100%;
+    
+    .apps-nav {
         text-align: center;
-        padding-block: 1em;
+        padding-block: .5em;
+        justify-content: center;
     }
 }
 
 nav a {
     font-weight: 100;
-    margin: .5em;
+    margin-inline: .5em;
 }
 
 nav a.active {

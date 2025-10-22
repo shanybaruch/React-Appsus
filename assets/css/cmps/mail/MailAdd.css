@@ -6,15 +6,15 @@
     border-radius: .5em;
     border: 1px solid var(--gray2);
     box-shadow: 1px 1px 15px 4px var(--gray2);
-    width: 50%;
-    height: 40%;
+    width: 40%;
+    height: max-content;
     background-color: var(--bg1);
 
     .form {
+        height: 100%;
         padding-inline: .8em;
         padding-block: .3em;
         background-color: white;
-
     }
 
     .add-mail-header {

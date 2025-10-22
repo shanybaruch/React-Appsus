@@ -120,7 +120,7 @@ export function MailAdd({ onToggleAdd }) {
                     id='subject' type="text" name='subject' />
 
                 <section className="flex">
-                    <textarea rows="10" type="text" onChange={handleChange} value={txt} name="txt" id="txt"></textarea>
+                    <textarea rows="20" type="text" onChange={handleChange} value={txt} name="txt" id="txt"></textarea>
                 </section>
 
                 <button className="btn-send">Send</button>
