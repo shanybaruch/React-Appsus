@@ -85,8 +85,8 @@ function _createMails() {
     }
 }
 
-function _createMail(from, subject, txt, read, to) {
-    const mail = getEmptyMail(from, subject, txt, read, to)
+function _createMail(from, subject, txt, read, to, isSelect) {
+    const mail = getEmptyMail(from, subject, txt, read, to, isSelect)
     mail.id = utilService.makeId()
     mail.subject = subject || 'No subject'
     mail.txt = txt || 'Description lorem ipsum'
@@ -94,6 +94,7 @@ function _createMail(from, subject, txt, read, to) {
     mail.date = _getRandomDate()
     mail.to = 'You'
     mail.from = from || 'Unknnown'
+    mail.isSelect = false
 
     return mail
 }

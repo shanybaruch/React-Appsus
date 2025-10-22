@@ -51,7 +51,7 @@ export function MailList() {
                     <MailPreview
                         mail={mail}
                         isSelected={selectedMails.includes(mail.id)}
-                        onToggle={() => toggleSelection(mail.id)}
+                        onRemoveMail={onRemoveMail}
                     />
                 </div>
             ))}

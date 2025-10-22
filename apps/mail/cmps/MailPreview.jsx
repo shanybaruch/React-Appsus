@@ -1,15 +1,14 @@
-export function MailPreview({ mail, isSelected, onToggle }) {
-    const { subject, to, txt, date, from, read } = mail 
-    // console.log(date);
+export function MailPreview({ mail, isSelected, onToggle, onRemoveMail }) {
+    const { subject, to, txt, date, from, read } = mail
 
     return (
         <article className={`mail-preview grid ${read ? 'read' : 'unread'}`}>
             <section className="checkbox-sub flex">
-                <input
-                className="mail-checkbox"
+                {/* <input
+                    className="mail-checkbox"
                     type="checkbox"
                     checked={isSelected}
-                    onChange={onToggle} />
+                    onChange={onToggle} /> */}
                 <div className="from">{from || 'You'}</div>
             </section>
             <section className="description flex">
@@ -17,6 +16,15 @@ export function MailPreview({ mail, isSelected, onToggle }) {
                 <div className="mail-txt">{txt}</div>
             </section>
             <div className="mail-date">{date}</div>
+            <span
+                className="delete-icon"
+                onClick={(ev) => {
+                    ev.stopPropagation();
+                    onRemoveMail(mail.id);
+                }}
+            >
+                <span class="fa-solid fa-trash"></span>
+            </span>
         </article>
     )
 }

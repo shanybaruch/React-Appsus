@@ -8,12 +8,29 @@
     border-bottom: 1px solid var(--gray2);
     cursor: pointer;
     transition: background-color 0.4s ease;
-    /* margin-inline-start: 1em; */
 
     .checkbox-sub {
         gap: .5em;
     }
 
+    .delete-icon {
+        position: absolute;
+
+        background-color: inherit;
+        font-size: 0.875em;
+        top: 10%;
+        left: 85%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    &:hover {
+        transition: .3s;
+        box-shadow: 1px 1px 10px 1px var(--gray2-dark);
+        .delete-icon {
+            opacity: 1;
+        }
+    }
 }
 
 .read {
