@@ -1,32 +1,20 @@
 import { NotePreviewIcon } from "../cmps/NotePreviewIcon.jsx"
 
-export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetColor }) {
+
+export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetColorNote, onUpdateNote }) {
     const { type, info, style } = note
-
-    function onSetColor(noteId, color) {
-        console.log(noteId, color);
-        
-        setNotes(prevNotes =>
-            prevNotes.map(note =>
-                note.id === noteId
-                    ? { ...note, style: { ...note.style, backgroundColor: color } }
-                    : note
-            )
-        )
-    }
-
-
+    
     return (
         <article className="note-preview" style={style} onClick={onClick}>
-            {type === 'NoteTxt' && <p class="NoteTxt" style={style}>{info.txt}</p>}
+            {type === 'NoteTxt' && <p className="NoteTxt" style={style}>{info.txt}</p>}
             {type === 'NoteImg' && (
-                <div class="NoteImg" style={style}>
+                <div className="NoteImg" style={style}>
                     <h4>{info.title}</h4>
                     <img src={info.url} alt={info.title} />
                 </div>
             )}
             {type === 'NoteTodos' && (
-                <div class="NoteTodos" style={style}>
+                <div className="NoteTodos" style={style}>
                     <h4>{info.title}</h4>
                     <ul>
                         {info.todos.map((todo, idx) => (
@@ -43,7 +31,9 @@ export function NotePreview({ note, onClick, onRemoveNote, onSetTxtNote, onSetCo
                 onClick={onClick}
                 onRemoveNote={onRemoveNote}
                 onSetTxtNote={onSetTxtNote}
-                onSetColor={onSetColor} />
+                onSetColorNote={onSetColorNote}
+                onUpdateNote={onUpdateNote} />
+            
         </article>
     )
 }

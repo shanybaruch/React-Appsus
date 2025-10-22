@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+
+.search-line-note {
+        .input-container {
+            position: relative;
+            padding: 10px;
+
+            .search-input {
+                border: 0;
+                background-color: #f1f3f4;
+                border-radius: 5px;
+                padding: 1.2em;
+                padding-inline-start: 3em;
+                width: 50vw;
+                background-color:rgb(0, 0, 0, .2);
+                padding-right: 35px;
+                gap: 5px;
+
+                position: relative;
+            }
+
+            .search {
+                position: absolute;
+                left: .9em;
+                top: .95em;
+                cursor: pointer;
+                z-index: 2;
+            }
+        }
+
+    }
+    .logo-img {
+            width: 33px;
+        }
+    
+
+    

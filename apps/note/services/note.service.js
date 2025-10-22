@@ -1,7 +1,11 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
+
+
 const NOTE_KEY = 'noteDB'
+let idUpdated = 101 // מספר, לא string
+
 const defaultNotes = [{
   id: 'n101',
   createdAt: 1112222,
@@ -43,7 +47,13 @@ export const noteService = {
   save,
   getEmptyNote,
   getDefaultFilter,
-  setBgColor
+  setBgColor,
+  incrementIdUpdated
+}
+
+export function incrementIdUpdated() {
+  idUpdated++
+  return idUpdated
 }
 
 function query() {
@@ -67,11 +77,14 @@ function remove(noteId) {
 }
 
 function save(note) {
+
+
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
-    note.id = makeId()
+    note.id = utilService.makeId()
     note.createdAt = Date.now()
+    console.log(note);
     return storageService.post(NOTE_KEY, note)
   }
 }
@@ -92,6 +105,7 @@ function getEmptyNote(type = 'NoteTxt') {
 function getDefaultFilter() {
   return { txt: '' }
 }
+
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
 
@@ -105,5 +119,5 @@ function _createNotes() {
 
 function setBgColor(color) {
   console.log(color);
-  
+
 }
