@@ -7,13 +7,16 @@
 .mail-header {
     padding-block: .8em;
     background-color: var(--bg1);
+    grid-template-columns: 1fr 3fr;
 
     .side-header {
+        justify-self: start;
         margin: 0;
         align-items: center;
 
         .logo-img {
-            width: 33px;
+            margin-inline-start: 1em;
+            width: 35px;
         }
 
         .logo-title {

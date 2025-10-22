@@ -76,13 +76,12 @@ export function MailIndex() {
                         <MailSideNav mails={mails} />
                     </section>
                     <section className="page-main">
-                        <Outlet context={{ mails, onRemoveMail }} />
+                        <Outlet context={{ mails, onRemoveMail, setMails }} />
                         {/* <MailList
                             mails={mails}
                             onRemoveMail={onRemoveMail}
                         /> */}
                     </section>
-                    {/* <Outlet /> */}
                     {isAddOpen && <MailAdd onToggleAdd={handleToggleAdd} />}
                     {isFilterOpen && <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} onToggleFilter={handleToggleFilter} />}
                 </section>

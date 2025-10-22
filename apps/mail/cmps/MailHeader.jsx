@@ -38,10 +38,10 @@ export function MailHeader({ onToggleFilter, defaultFilter, onSetFilterBy }) {
     }
 
     return (
-        <section className="mail-header flex space-between">
+        <section className="mail-header grid space-around">
 
             <section className="side-header flex">
-                <a className="menu fa-solid fa-bars"></a>
+                {/* <a className="menu fa-solid fa-bars"></a> */}
                 <Link className="flex align-center" to="/">
                     <img className="logo-img" src="assets/css/img/logo.png" alt="logo" />
                     <h3 className="logo-title">MisterEmail</h3>
@@ -64,9 +64,9 @@ export function MailHeader({ onToggleFilter, defaultFilter, onSetFilterBy }) {
                 </section>
             </section>
 
-            <section className="flex align-center">
+            {/* <section className="flex align-center">
                 <a className="settings fa-solid fa-gear"></a>
-            </section>
+            </section> */}
 
         </section>
     )

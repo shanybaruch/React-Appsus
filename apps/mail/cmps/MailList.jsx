@@ -7,7 +7,7 @@ export function MailList() {
 
     const [selectedMails, setSelectedMails] = useState([]);
     const navigate = useNavigate()
-    const { mails, onRemoveMail } = useOutletContext()
+    const { mails, onRemoveMail, setMails } = useOutletContext()
 
     function toggleSelection(mailId) {
         setSelectedMails(prev =>
@@ -18,9 +18,18 @@ export function MailList() {
     }
 
     function handleDelete() {
-        selectedMails.forEach(mailId => onRemoveMail(mailId));
-        setSelectedMails([])
+        Promise.all(selectedMails.map(mailId => mailService.remove(mailId)))
+            .then(() => {
+                setMails(prevMails => prevMails.filter(mail => !selectedMails.includes(mail.id)))
+                setSelectedMails([])
+                showSuccessMsg('Mails removed successfully')
+            })
+            .catch(err => {
+                console.error('Error removing mails:', err)
+                showErrorMsg('Cannot remove mails')
+            })
     }
+
 
     function handleMailClick(mailId, ev) {
         if (ev.target.closest('.mail-checkbox')) return
